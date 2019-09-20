@@ -1,5 +1,5 @@
 # To get a list of series run script
-# python /home/media/.config/NzbDrone/custom-scripts/sonarr-episode-trimmer.py --config /storage/config/docker/sonarr/config/custom-scripts/config --list-series
+# python /home/media/.config/NzbDrone/custom-scripts/sonarr-episode-trimmer.py --config /home/media/.config/NzbDrone/custom-scripts/config --list-series
 [API]
 url = localhost:8989
 url_base = /sonarr
