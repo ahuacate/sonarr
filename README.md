@@ -21,5 +21,19 @@ Tasks to be performed are:
 - [ ] 3.00 Download the FileBot deluge-postprocess.sh script for Deluge
 - [ ] 00.00 Patches & Fixes
 
-## 1.00 Setup the Basics
-Q
+## 1.00 Restore a Sonarr Backup
+If you have a backup of your Sonarr settings you can restore them. With the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
+```
+sudo systemctl stop sonarr.service &&
+sleep 5 &&
+newest=$(ls -t /mnt/backup/sonarr/*zip | head -1)
+rm -r /home/media/.config/NzbDrone/nzbdrone.db*
+
+```
+
+
+
+
+Browse to http://192.168.50.115:8989/sonarr/settings/mediamanagement to edit Sonarr preferences.
+
+
