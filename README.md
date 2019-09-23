@@ -58,5 +58,5 @@ sudo systemctl restart sonarr.service
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
 
 ### 2.01 Configure Media Management
-![Screenshot_2019-09-23 Settings - Sonarr](https://user-images.githubusercontent.com/43461046/65425787-0337c700-de39-11e9-8251-d17fb90cf797.png)
+![Screenshot_2019-09-23 Settings - Sonarr(1)](https://user-images.githubusercontent.com/43461046/65425834-23678600-de39-11e9-9817-c7daa5eb4b3e.png)
 
