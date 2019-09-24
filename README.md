@@ -23,7 +23,11 @@ Tasks to be performed are:
 
 ---
 ## 1.00 Easy Sonarr Configuration
-You have two choices to configure Sonarr - the easy way or manually. If you choose manually proceed to Step 2 [HERE](
+You have two choices to configure Sonarr - the easy way or manually. If you choose manually proceed to Step 2 [HERE](https://github.com/ahuacate/sonarr/blob/master/README.md#200-manually-configure-sonarr-settings).
+
+The easy is use a pre-built backup file which includes all the required configurated except two issues:
+*  Setting your login password which can be done by performing this step [2.07 Configure General](); *and,*
+*  Adding your NZB Usenet Index providers which can be done by performing this step [2.05 Configure Download Clients](
 Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
 
 But it's good idea to make a raw backup of your working base settings configuration, including all settings, before adding any series media (TV shows). This backup file must be stored outside of the Sonarr CT. In the event of needing to recreate a Sonarr CT you can use this backup file to quickly restore your Sonarr settings. This backup file must be named `nzbdrone_backup_base_settings.zip` and be located on your NAS at `/mnt/backup/sonarr`.
