@@ -31,6 +31,8 @@ The easy is use a pre-built backup file available on our GitHub repository which
 
 Using the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
 ```
+https://raw.githubusercontent.com/ahuacate/sonarr/master/backup/config.xml
+wget https://raw.githubusercontent.com/ahuacate/sonarr/master/backup/ -O /home/media/.config/Jackett/ServerConfig.json &&
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
 rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
