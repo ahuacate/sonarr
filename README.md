@@ -28,12 +28,36 @@ Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Ta
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
 
 ### 1.02 Configure Profiles
+Edit Delay Profiles. Add 300 minutes to the torrent delay.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
 
 ### 1.03 Configure Quality
+Edit HDTV Quality and BlueRay-1080p size limit to 10.00GB.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
 
 ### 1.04 Configure Indexers
+First create a new indexer using the Torznab Custom template named `Jackett` and fill out the details as shown below.
+
+| Add Torznab | Value
+| :---  | :---:
+| Name | `Jackett`
+| Enable RSS Sync | `No`
+| Enable Search | `Yes`
+| URL | `http://192.168.30.113:9117`
+| API Path | `/torznab/all/api`
+| API Key | `s9tcqkddvjpkmis824pp6ucgpwcd2xnc`
+| Categories | `5030,5040`
+| Anime Categories | leave blank
+| Additional Parameters | leave blank
+| Minimum Seeders | `1`
+| Seed Ratio | leave blank
+| Seed Time | leave blank
+| Season-Pack Seed Time | leave blank
+
+And click `Save`. The finished Jackett configuration looks like:
+
+
+Finally edit the `Options` Retention to `1500` days.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/indexers.png)
 
 ## 1.00 Restore a Sonarr Backup
