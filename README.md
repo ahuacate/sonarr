@@ -16,9 +16,9 @@ Other Prerequisites are:
 - [x] Sonarr LXC with Sonarr SW installed as per [Sonarr LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#80-sonarr-lxc---ubuntu-1804)
 
 Tasks to be performed are:
-- [ ] 1.00 Setting Up Sonarr
-- [ ] 2.00 Setup your ShowRSS, MVGroup, TheTVDb and Documentary Torrent Accounts
-- [ ] 3.00 Download the FileBot deluge-postprocess.sh script for Deluge
+- [ ] 1.00 Easy Sonarr Configuration
+- [ ] 2.00 Manually Configure Sonarr Settings
+- [ ] 3.00 Create & Restore Sonarr Backups
 - [ ] 00.00 Patches & Fixes
 
 
@@ -247,3 +247,5 @@ unzip -o "$newest" 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
 chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db* &&
 sudo systemctl restart sonarr.service
 ```
+
+## 00.00 Patches & Fixes
