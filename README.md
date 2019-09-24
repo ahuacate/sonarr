@@ -178,7 +178,6 @@ And click `Save`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/general.png)
 
-
 ### 2.08 Configure UI
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/ui.png)
 
