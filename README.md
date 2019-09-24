@@ -38,7 +38,11 @@ Edit HDTV Quality and BlueRay-1080p size limit to 10.00GB.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
 
 ### 2.04 Configure Indexers
-First create a new indexer using the Torznab Custom template named `Jackett` and fill out the details as shown below.
+This is where you configure Sonarr to use Usenet a your primary search indexer and Torrents as secondary. For torrents Sonarr uses Jackett which must be installed as shown [HERE](https://github.com/ahuacate/jackett).
+
+**A) Add Jackett as a Indexer**
+
+Create a new torrent indexer using the `Torznab Custom` template and fill out the details as shown below.
 
 | Add Torznab | Value
 | :---  | :---:
@@ -59,6 +63,10 @@ First create a new indexer using the Torznab Custom template named `Jackett` and
 And click `Save`. The finished Jackett configuration looks like:
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/torznab.png)
+
+**B) Add Usenet Indexers**
+
+Add all your Usenet indexers providers with the `Newsnab` presets (or custom if your provider is not listed).
 
 Finally edit the `Options` Retention to `1500` days.
 
