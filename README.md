@@ -158,7 +158,29 @@ And click `Test` to check it works. If successful, click `Save`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/sonarr-episode-trimmer.png)
 
+### 2.07 Configure General
+Here are required edits: 1) URL Base; and, 2) setting the security section to enable username and login.
 
+| Start-Up | Value | Notes
+| :---  | :---: | :---
+| Bind Address | `*`
+| Port Number | 8989
+| URL Base | `/sonarr`
+| Enable SSL | No
+| Open Browser on start | Yes
+| **Security**
+| Authentication | `Basic (Browser Pop-up)`
+| Username | `storm` | *Note, or whatever username you choose*
+| Password | `insert password here` | *Add a complex password and record it i.e oTL&9qe/9Y&RV*
+| API Key | leave default
+
+And click `Save`.
+
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/general.png)
+
+
+### 2.08 Configure UI
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/ui.png)
 
 
 
