@@ -28,10 +28,13 @@ Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Ta
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
 
 ### 1.02 Configure Profiles
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
 
 ### 1.03 Configure Quality
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
 
 ### 1.04 Configure Indexers
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/indexers.png)
 
 ## 1.00 Restore a Sonarr Backup
 Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
