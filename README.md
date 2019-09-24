@@ -55,7 +55,7 @@ First create a new indexer using the Torznab Custom template named `Jackett` and
 | Season-Pack Seed Time | leave blank
 
 And click `Save`. The finished Jackett configuration looks like:
-
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/torznab.png)
 
 Finally edit the `Options` Retention to `1500` days.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/indexers.png)
