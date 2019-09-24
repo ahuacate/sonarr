@@ -23,9 +23,9 @@ Tasks to be performed are:
 
 
 ## 1.00 Easy Sonarr Configuration
-You have two choices to configure Sonarr - the Easy Method or manually enter all the edits yourself. If you choose manually proceed to Step 2 [HERE](https://github.com/ahuacate/sonarr/blob/master/README.md#200-manually-configure-sonarr-settings).
+You have two choices to configure Sonarr - the scripted Easy Method or manually enter all the settings yourself. If you choose the manual route proceed to Step 2 [HERE](https://github.com/ahuacate/sonarr/blob/master/README.md#200-manually-configure-sonarr-settings).
 
-The Easy Method uses our pre-built configuration files which includes all the required Sonarr settings except two:
+The scripted Easy Method uses our pre-built configuration files which includes everything except two key settings:
 
 *  Adding your NZB Usenet Index providers accounts which can be done by performing this step [2.05 Configure Download Clients](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
 *  Setting your login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general); *and,*
@@ -56,7 +56,7 @@ Edit Delay Profiles. Add 300 minutes to the torrent delay.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
 
 ### 2.03 Configure Quality
-Edit HDTV Quality and BlueRay-1080p size limit to 10.00GB.
+Edit HDTV Quality and BluRay-1080p size limit to 10.00GB.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
 
 ### 2.04 Configure Indexers
