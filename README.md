@@ -25,7 +25,7 @@ Tasks to be performed are:
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
 
 ### 1.01 Configure Media Management
-![Screenshot_2019-09-23 Settings - Sonarr(1)](https://user-images.githubusercontent.com/43461046/65425834-23678600-de39-11e9-9817-c7daa5eb4b3e.png)
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
 
 ### 1.02 Configure Profiles
 
