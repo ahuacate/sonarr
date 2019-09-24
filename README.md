@@ -21,7 +21,7 @@ Tasks to be performed are:
 - [ ] 3.00 Download the FileBot deluge-postprocess.sh script for Deluge
 - [ ] 00.00 Patches & Fixes
 
----
+
 ## 1.00 Easy Sonarr Configuration
 You have two choices to configure Sonarr - the Easy Method or manually enter all the edits yourself. If you choose manually proceed to Step 2 [HERE](https://github.com/ahuacate/sonarr/blob/master/README.md#200-manually-configure-sonarr-settings).
 
@@ -44,7 +44,6 @@ sudo systemctl restart sonarr.service
 
 Thats it. Now go and complete Steps 2.05 and 2.07.
 
----
 
 ## 2.00 Manually Configure Sonarr Settings
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
@@ -212,7 +211,6 @@ And click `Save`.
 ### 2.08 Configure UI
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/ui.png)
 
----
 
 ## 3.00 Create & Restore Sonarr Backups
 Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
@@ -249,6 +247,3 @@ unzip -o "$newest" 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
 chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db* &&
 sudo systemctl restart sonarr.service
 ```
-
-
-
