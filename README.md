@@ -21,21 +21,21 @@ Tasks to be performed are:
 - [ ] 3.00 Download the FileBot deluge-postprocess.sh script for Deluge
 - [ ] 00.00 Patches & Fixes
 
-## 1.00 Configure Sonarr Settings
+## 2.00 Manually Configure Sonarr Settings
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
 
-### 1.01 Configure Media Management
+### 2.01 Configure Media Management
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
 
-### 1.02 Configure Profiles
+### 2.02 Configure Profiles
 Edit Delay Profiles. Add 300 minutes to the torrent delay.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
 
-### 1.03 Configure Quality
+### 2.03 Configure Quality
 Edit HDTV Quality and BlueRay-1080p size limit to 10.00GB.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
 
-### 1.04 Configure Indexers
+### 2.04 Configure Indexers
 First create a new indexer using the Torznab Custom template named `Jackett` and fill out the details as shown below.
 
 | Add Torznab | Value
@@ -62,7 +62,7 @@ Finally edit the `Options` Retention to `1500` days.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/indexers.png)
 
-### 1.05 Configure Download Clients
+### 2.05 Configure Download Clients
 **A)  Deluge Download Client**
 
 First create a new download client using the `Torrent > Deluge` template and fill out the details as shown below.
@@ -111,6 +111,52 @@ And click `Test` to check it works. If successful, click `Save`.
 Other `download tab` settings must be set as follows:
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
+
+### 2.06 Configure Connect
+Here you need create two connections: A) Jellyfin; and, B) sonarr-episode-trimmer. 
+
+**A)  Jellyfin Connection**
+
+First create a new connection using the `Emby (Media Browser)` template and fill out the details as shown below.
+
+| Add - Emby (Media Browser) | Value | Notes
+| :---  | :---: | :---
+| Name | `Jellyfin`
+| On Grab| `No`
+| On Download | `Yes`
+| On Upgrade | `Yes`
+| On Rename | `Yes`
+| Filter Series | leave blank
+| Host | `192.168.50.111` | This is your NZBGet client password.
+| Port | `8096`
+| API Key | Insert your Jellyfin API key | *Note, create one in Jellyfin specially for Sonarr*
+| Send Notifications| `Yes`
+| Update Library | `Yes`
+
+And click `Test` to check it works. If successful, click `Save`.
+
+
+**A)  sonarr-episode-trimmer**
+
+First create a new connection using the `Custom Script` template and fill out the details as shown below.
+
+| Add - Custom Script | Value | Notes
+| :---  | :---: | :---
+| Name | `sonarr-episode-trimmer`
+| On Grab| `No`
+| On Download | `Yes`
+| On Upgrade | `No`
+| On Rename | `No`
+| Filter Series | leave blank
+| Path | `/home/media/.config/NzbDrone/custom-scripts/sonarr-episode-trimmer.py`
+| Arguments | `--config /home/media/.config/NzbDrone/custom-scripts/config --custom-script`
+
+And click `Test` to check it works. If successful, click `Save`.
+
+
+
+
+
 
 
 ## 1.00 Restore a Sonarr Backup
