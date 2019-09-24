@@ -110,6 +110,7 @@ And click `Test` to check it works. If successful, click `Save`.
 
 Other `download tab` settings must be set as follows:
 
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
 
 
 ## 1.00 Restore a Sonarr Backup
