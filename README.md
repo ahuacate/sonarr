@@ -46,7 +46,7 @@ Thats it. Now go and complete Steps 2.05 and 2.07.
 
 
 ## 2.00 Manually Configure Sonarr Settings
-Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
+Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to set `Shown` state. Configure all your tabs as follows.
 
 ### 2.01 Configure Media Management
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
