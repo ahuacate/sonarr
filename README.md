@@ -55,10 +55,55 @@ First create a new indexer using the Torznab Custom template named `Jackett` and
 | Season-Pack Seed Time | leave blank
 
 And click `Save`. The finished Jackett configuration looks like:
+
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/torznab.png)
 
 Finally edit the `Options` Retention to `1500` days.
+
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/indexers.png)
+
+### 1.05 Configure Download Clients
+**A)  Deluge Download Client**
+
+First create a new download client using the `Torrent > Deluge` template and fill out the details as shown below.
+
+| Add Deluge | Value | Notes
+| :---  | :---: | :---
+| Name | `Deluge`
+| Enable| `Yes`
+| Host | `192.168.30.113`
+| Port | `8112`
+| URL Base| leave blank
+| Password| `insert your deluge password` | This is your Deluge login password.
+| Category | `sonarr-series`
+| Recent Priority | First
+| Older Priority | Last
+| Add Paused | No
+| Use SSL | No
+
+And click `Test` to check it works. If successful, click `Save`.
+
+**B)  NZBGet Download Client**
+
+First create a new download client using the `Usenet > NZBGet` template and fill out the details as shown below.
+
+| Add NZBGet | Value | Notes
+| :---  | :---: | :---
+| Name | `NZBGet`
+| Enable| `Yes`
+| Host | `192.168.30.112`
+| Port | `6789`
+| URL Base| leave blank
+| Username | `client`
+| Password| `insert your client password` | This is your NZBGet client password.
+| Category | `sonarr-series`
+| Recent Priority | High
+| Older Priority | Normal
+| Add Paused | No
+| Use SSL | No
+
+And click `Test` to check it works. If successful, click `Save`.
+
 
 ## 1.00 Restore a Sonarr Backup
 Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
