@@ -21,6 +21,8 @@ Tasks to be performed are:
 - [ ] 3.00 Download the FileBot deluge-postprocess.sh script for Deluge
 - [ ] 00.00 Patches & Fixes
 
+---
+
 ## 2.00 Manually Configure Sonarr Settings
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
 
@@ -135,6 +137,7 @@ First create a new connection using the `Emby (Media Browser)` template and fill
 
 And click `Test` to check it works. If successful, click `Save`.
 
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/jellyfin.png)
 
 **A)  sonarr-episode-trimmer**
 
@@ -153,7 +156,7 @@ First create a new connection using the `Custom Script` template and fill out th
 
 And click `Test` to check it works. If successful, click `Save`.
 
-
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/sonarr-episode-trimmer.png)
 
 
 
