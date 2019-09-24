@@ -21,6 +21,18 @@ Tasks to be performed are:
 - [ ] 3.00 Download the FileBot deluge-postprocess.sh script for Deluge
 - [ ] 00.00 Patches & Fixes
 
+## 1.00 Configure Sonarr Settings
+Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
+
+### 1.01 Configure Media Management
+![Screenshot_2019-09-23 Settings - Sonarr(1)](https://user-images.githubusercontent.com/43461046/65425834-23678600-de39-11e9-9817-c7daa5eb4b3e.png)
+
+### 1.02 Configure Profiles
+
+### 1.03 Configure Quality
+
+### 1.04 Configure Indexers
+
 ## 1.00 Restore a Sonarr Backup
 Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
 
@@ -54,9 +66,5 @@ chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db* &&
 sudo systemctl restart sonarr.service
 ```
 
-## 2.00 Configure Sonarr Settings
-Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
 
-### 2.01 Configure Media Management
-![Screenshot_2019-09-23 Settings - Sonarr(1)](https://user-images.githubusercontent.com/43461046/65425834-23678600-de39-11e9-9817-c7daa5eb4b3e.png)
 
