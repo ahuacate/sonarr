@@ -22,6 +22,26 @@ Tasks to be performed are:
 - [ ] 00.00 Patches & Fixes
 
 ---
+## 1.00 Easy Sonarr Configuration
+You have two choices to configure Sonarr - the easy way or manually. If you choose manually proceed to Step 2 [HERE](
+Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
+
+But it's good idea to make a raw backup of your working base settings configuration, including all settings, before adding any series media (TV shows). This backup file must be stored outside of the Sonarr CT. In the event of needing to recreate a Sonarr CT you can use this backup file to quickly restore your Sonarr settings. This backup file must be named `nzbdrone_backup_base_settings.zip` and be located on your NAS at `/mnt/backup/sonarr`.
+
+If you have a backup of your Sonarr settings you can restore them.
+*  restore the Sonarr installation Base Settings;
+*  restore the lastest dated Sonarr backup you've made.
+
+### 1.01 Restore to Sonarr Base Settings
+With the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
+```
+sudo systemctl stop sonarr.service &&
+sleep 5 &&
+rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
+unzip -o /mnt/backup/sonarr/nzbdrone_backup_base_settings.zip 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
+chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db* &&
+sudo systemctl restart sonarr.service
+```
 
 ## 2.00 Manually Configure Sonarr Settings
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to the `Shown` state. Configure all your tabs as follows.
