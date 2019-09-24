@@ -83,6 +83,8 @@ First create a new download client using the `Torrent > Deluge` template and fil
 
 And click `Test` to check it works. If successful, click `Save`.
 
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/deluge.png)
+
 **B)  NZBGet Download Client**
 
 First create a new download client using the `Usenet > NZBGet` template and fill out the details as shown below.
@@ -103,6 +105,11 @@ First create a new download client using the `Usenet > NZBGet` template and fill
 | Use SSL | No
 
 And click `Test` to check it works. If successful, click `Save`.
+
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/nzbget.png)
+
+Other `download tab` settings must be set as follows:
+
 
 
 ## 1.00 Restore a Sonarr Backup
