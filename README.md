@@ -25,19 +25,11 @@ Tasks to be performed are:
 ## 1.00 Easy Sonarr Configuration
 You have two choices to configure Sonarr - the easy way or manually. If you choose manually proceed to Step 2 [HERE](https://github.com/ahuacate/sonarr/blob/master/README.md#200-manually-configure-sonarr-settings).
 
-The easy is use a pre-built backup file which includes all the required configurated except two issues:
-*  Setting your login password which can be done by performing this step [2.07 Configure General](); *and,*
+The easy is use a pre-built backup file available on our GitHub repository which includes all the required Sonarr settings  except two:
+*  Setting your login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general); *and,*
 *  Adding your NZB Usenet Index providers which can be done by performing this step [2.05 Configure Download Clients](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
-Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
 
-But it's good idea to make a raw backup of your working base settings configuration, including all settings, before adding any series media (TV shows). This backup file must be stored outside of the Sonarr CT. In the event of needing to recreate a Sonarr CT you can use this backup file to quickly restore your Sonarr settings. This backup file must be named `nzbdrone_backup_base_settings.zip` and be located on your NAS at `/mnt/backup/sonarr`.
-
-If you have a backup of your Sonarr settings you can restore them.
-*  restore the Sonarr installation Base Settings;
-*  restore the lastest dated Sonarr backup you've made.
-
-### 1.01 Restore to Sonarr Base Settings
-With the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
+Using the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
 ```
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
