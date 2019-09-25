@@ -161,7 +161,7 @@ First create a new connection using the `Emby (Media Browser)` template and fill
 | On Upgrade | `Yes`
 | On Rename | `Yes`
 | Filter Series | leave blank
-| Host | `192.168.50.111` | This is your NZBGet client password.
+| Host | `192.168.50.111`
 | Port | `8096`
 | API Key | Insert your Jellyfin API key | *Note, create one in Jellyfin specially for Sonarr*
 | Send Notifications| `Yes`
