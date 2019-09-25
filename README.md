@@ -27,7 +27,7 @@ You have two choices to configure Sonarr - the scripted Easy Method or manually 
 
 The scripted Easy Method uses our pre-built configuration files which includes everything except two key settings:
 
-*  Adding your NZB Usenet Index providers accounts which can be done by performing this step [2.05 Configure Download Clients](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
+*  Adding your NZB Usenet Index providers accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
 *  Setting your login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general); *and,*
 
 Begin with the Proxmox web interface and go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
