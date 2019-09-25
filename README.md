@@ -30,7 +30,7 @@ The scripted Easy Method uses our pre-built configuration files which includes e
 
 *  Adding your NZB Usenet Indexer provider accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#204-configure-indexers)
 *  Updating your Deluge login pasword if you are not using the default (i.e pwd=deluge) [2.05 (A) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
-*  Setting your Sonarr login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general).
+*  Updating your Sonarr login username & password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general).
 
 Begin with the Proxmox web interface and go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
 ```
