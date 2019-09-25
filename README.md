@@ -30,7 +30,7 @@ The scripted Easy Method uses our pre-built configuration files which includes e
 
 *  Adding your NZB Usenet Indexer provider accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#204-configure-indexers)
 *  Updating your Deluge login pasword if you are not using the default (i.e pwd=deluge) [2.05 (A) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
-*  Setting your Sonarr login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general); *and,*
+*  Setting your Sonarr login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general).
 
 Begin with the Proxmox web interface and go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
 ```
@@ -44,7 +44,7 @@ chown 1005:1005 /home/media/.config/NzbDrone/config.xml &&
 sudo systemctl restart sonarr.service
 ```
 
-Thats it. Now go and complete Steps 2.05 and 2.07.
+Thats it. Now go and complete Steps 2.04 (B), 2.05 (A) and 2.07.
 
 
 ## 2.00 Manually Configure Sonarr Settings
@@ -215,16 +215,16 @@ And click `Save`.
 
 
 ## 3.00 Create & Restore Sonarr Backups
-Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/manual`.
+Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/scheduled`.
 
-But it's good idea to make a raw backup of your working base settings configuration, including all settings, before adding any series media (i.e TV shows). This backup file must be stored outside of the Sonarr CT container for safe keeping. Then in the event of needing to recreate a Sonarr CT you can use this backup file to quickly restore all your Sonarr settings. This backup file must be named `nzbdrone_backup_base_settings.zip` and be located on your NAS in folder `/mnt/backup/sonarr` for below scripts to work.
+But it's good idea to make a raw backup of your working base settings configuration, including all settings, before adding any series media (i.e TV shows). This backup file must be stored outside of the Sonarr CT container for safe keeping. Then in the event of needing to recreate a Sonarr CT you can use this backup file to quickly restore all your Sonarr settings. This backup file must be named `sonarr_backup_base_settings.zip` and be located on your NAS in folder `/mnt/backup/sonarr` for below scripts to work.
 
 ### 3.01 Create a Base Settings Backup
 After you have completed Steps 1.00 or Steps 2.00 its time to create **new** private base settings backup. This file will be stored on your NAS for future rebuilds when and if required.
 
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Systems Tab` > `Logs Tab` > `Table/Files/Updates Tabs` and click `Clear Logs` on all.
 
-Then click `System Tab` > `Backup Tab` and click `Backup` to create a new backup file which will be shown with a name like `nzbdrone_backup_2019.09.24_05.39.55.zip`. Now right click on this newly created file (at the top of list) and save to your NAS share `/proxmox/backup/sonarr` (locally mounted as /mnt/backup/sonarr). Rename your backup file `nzbdrone_backup_2019.09.24_05.39.55.zip` to `nzbdrone_backup_base_settings.zip`.
+Then click `System Tab` > `Backup Tab` and click `Backup` to create a new backup file which will be shown with a name like `nzbdrone_backup_2019.09.24_05.39.55.zip`. Now right click on this newly created file (at the top of list) and save to your NAS share `/proxmox/backup/sonarr` (locally mounted as /mnt/backup/sonarr). Rename your backup file `nzbdrone_backup_2019.09.24_05.39.55.zip` to `sonarr_backup_base_settings.zip`.
 
 ### 3.03 Restore to Sonarr Base Settings
 With the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
@@ -232,7 +232,7 @@ With the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` 
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
 rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
-unzip -o /mnt/backup/sonarr/nzbdrone_backup_base_settings.zip 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
+unzip -o /mnt/backup/sonarr/sonarr_backup_base_settings.zip 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
 chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db* &&
 sudo systemctl restart sonarr.service
 ```
@@ -243,7 +243,7 @@ If you want to restore to your last backup (this backup is a maximum of 7 days o
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
 rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
-newest=$(ls -t /home/media/.config/NzbDrone/Backups/manual/*.zip | head -1) &&
+newest=$(ls -t /home/media/.config/NzbDrone/Backups/scheduled/*.zip | head -1) &&
 echo $newest &&
 unzip -o "$newest" 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
 chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db* &&
