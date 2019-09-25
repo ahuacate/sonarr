@@ -147,7 +147,7 @@ Other `download tab` settings must be set as follows:
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
 
 ### 2.06 Configure Connect
-Here you need create two connections: A) Jellyfin; and, B) sonarr-episode-trimmer. 
+Here you need to create two connections: A) Jellyfin; and, B) sonarr-episode-trimmer. 
 
 **A)  Jellyfin Connection**
 
