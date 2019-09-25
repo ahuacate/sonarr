@@ -13,6 +13,7 @@ Other Prerequisites are:
 - [x] pfSense is fully configured as per [HAProxy in pfSense](https://github.com/ahuacate/proxmox-reverseproxy/blob/master/README.md#haproxy-in-pfsense)
 - [x] Deluge LXC with Deluge SW installed as per [Deluge LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#40-deluge-lxc---ubuntu-1804).
 - [x] NZBGet LXC with NZBGet SW installed as per [NZBget LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#300-nzbget-lxc---ubuntu-1804)
+- [x] Jackett installed as per [Jackett LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#500-jackett-lxc---ubuntu-1804)
 - [x] Sonarr LXC with Sonarr SW installed as per [Sonarr LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#80-sonarr-lxc---ubuntu-1804)
 
 Tasks to be performed are:
@@ -27,8 +28,9 @@ You have two choices to configure Sonarr - the scripted Easy Method or manually 
 
 The scripted Easy Method uses our pre-built configuration files which includes everything except two key settings:
 
-*  Adding your NZB Usenet Index providers accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
-*  Setting your login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general); *and,*
+*  Adding your NZB Usenet Indexer provider accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#204-configure-indexers)
+*  Updating your Deluge login pasword if you are not using the default (i.e pwd=deluge) [2.05 (A) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
+*  Setting your Sonarr login password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general); *and,*
 
 Begin with the Proxmox web interface and go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
 ```
