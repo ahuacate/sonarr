@@ -66,7 +66,7 @@ Edit HDTV Quality and BluRay-1080p size limit to 10.00GB.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
 
 ### 2.04 Configure Indexers
-This is where you configure Sonarr to use Usenet a your primary search indexer and Torrents as secondary. For torrents Sonarr uses Jackett which must be installed as shown [HERE](https://github.com/ahuacate/jackett).
+This is where you configure Lidarr to use Usenet as your primary search indexer and Torrents (Jackett) as the secondary indexer.  For torrents Sonarr uses Jackett which must be installed as shown [HERE](https://github.com/ahuacate/jackett).
 
 **A) Add Jackett as a Indexer**
 
