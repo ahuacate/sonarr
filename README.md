@@ -24,9 +24,11 @@ Tasks to be performed are:
 
 
 ## 1.00 Easy Sonarr Configuration
-You have two choices to configure Sonarr - the scripted Easy Method or manually enter all the settings yourself. If you choose the manual route proceed to Step 2 [HERE](https://github.com/ahuacate/sonarr/blob/master/README.md#200-manually-configure-sonarr-settings).
+Easy Method configures some Sonarr preferences BUT not all.
 
-The scripted Easy Method uses our pre-built configuration files which includes everything except three key settings:
+Or take the the manual route and proceed to Step 2 HERE.
+
+After running the scripted CLI Easy Method your input is required for the following settings:
 
 *  Adding your NZB Usenet Indexer provider accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#204-configure-indexers)
 *  Updating Deluge access login username & password if you are not using the default credentials  (i.e pwd=deluge) [2.05 (A) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
@@ -108,7 +110,7 @@ First create a new download client using the `Torrent > Deluge` template and fil
 | Host | `192.168.30.113`
 | Port | `8112`
 | URL Base| leave blank
-| Password| `insert your deluge password` | This is your Deluge login password.
+| Password| `insert your deluge password` | *This is your Deluge login password*
 | Category | `sonarr-series`
 | Recent Priority | First
 | Older Priority | Last
@@ -131,7 +133,7 @@ First create a new download client using the `Usenet > NZBGet` template and fill
 | Port | `6789`
 | URL Base| leave blank
 | Username | `client`
-| Password| `insert your client password` | This is your NZBGet client password.
+| Password| `insert your client password` | *This is your NZBGet client password*
 | Category | `sonarr-series`
 | Recent Priority | High
 | Older Priority | Normal
@@ -163,7 +165,7 @@ First create a new connection using the `Emby (Media Browser)` template and fill
 | Filter Series | leave blank
 | Host | `192.168.50.111`
 | Port | `8096`
-| API Key | Insert your Jellyfin API key | *Note, create one in Jellyfin specially for Sonarr*
+| API Key | Insert your Jellyfin API key | *Note, create one in Jellyfin for Sonarr*
 | Send Notifications| `Yes`
 | Update Library | `Yes`
 
@@ -217,14 +219,16 @@ And click `Save`.
 ## 3.00 Create & Restore Sonarr Backups
 Sonarr has a built in backup service. Sonarr will execute a backup every 7 days creating a zip file located in `/home/media/.config/NzbDrone/Backups/scheduled`.
 
-But it's good idea to make a raw backup of your working base settings configuration, including all settings, before adding any series media (i.e TV shows). This backup file must be stored outside of the Sonarr CT container for safe keeping. Then in the event of needing to recreate a Sonarr CT you can use this backup file to quickly restore all your Sonarr settings. This backup file must be named `sonarr_backup_base_settings.zip` and be located on your NAS in folder `/mnt/backup/sonarr` for below scripts to work.
+But it's good idea to make a clean backup of your working Sonarr settings, including all passwords etc, before adding any tv series media. The clean backup file MUST be stored outside of the Proxmox Radarr LXC container for safe keeping. Then in the event of you needing to recreate your Sonarr LXC you can use this backup file to quickly restore all your Sonarr settings.
+
+This backup file must be named sonarr_backup_base_settings.zip and be located on your NAS in folder /mnt/backup/sonarr for the following scripts to work.
 
 ### 3.01 Create a Base Settings Backup
-After you have completed Steps 1.00 or Steps 2.00 its time to create **new** private base settings backup. This file will be stored on your NAS for future rebuilds when and if required.
+Perform after you have completed Steps 1.00 or Steps 2.00. This file must be stored on your NAS for future rebuilds
 
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Systems Tab` > `Logs Tab` > `Table/Files/Updates Tabs` and click `Clear Logs` on all.
 
-Then click `System Tab` > `Backup Tab` and click `Backup` to create a new backup file which will be shown with a name like `nzbdrone_backup_2019.09.24_05.39.55.zip`. Now right click on this newly created file (at the top of list) and save to your NAS share `/proxmox/backup/sonarr` (locally mounted as /mnt/backup/sonarr). Rename your backup file `nzbdrone_backup_2019.09.24_05.39.55.zip` to `sonarr_backup_base_settings.zip`.
+Then click `System Tab` > `Backup Tab` and click `Backup` to create a new backup file which will be shown with a name like `nzbdrone_backup_2019.09.24_05.39.55.zip`. Now right click on this newly created file (at the top of list) and save to your NAS share `/proxmox/backup/sonarr` (locally mounted as /mnt/backup/sonarr). Rename your backup file from `nzbdrone_backup_2019.09.24_05.39.55.zip` to `sonarr_backup_base_settings.zip`.
 
 ### 3.03 Restore to Sonarr Base Settings
 With the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
