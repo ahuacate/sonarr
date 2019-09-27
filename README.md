@@ -31,7 +31,9 @@ Or take the the manual route and proceed to Step 2 HERE.
 After running the scripted CLI Easy Method your input is required for the following settings:
 
 *  Adding your NZB Usenet Indexer provider accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#204-configure-indexers)
-*  Updating Deluge access login username & password if you are not using the default credentials  (i.e pwd=deluge) [2.05 (A) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
+*  Adding Deluge downloader and login credentials [2.05 (A) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
+*  Adding NZBGet downloader and login credentials [2.05 (B) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
+*  Add your JellyFin Connection [2.06 (A) Configure Connect](https://github.com/ahuacate/radarr/blob/master/README.md#206-configure-connect)
 *  Updating Sonarr to use a secure login username & password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general).
 
 Begin with the Proxmox web interface and go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
@@ -173,7 +175,7 @@ And click `Test` to check it works. If successful, click `Save`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/jellyfin.png)
 
-**A)  sonarr-episode-trimmer**
+**B)  sonarr-episode-trimmer**
 
 First create a new connection using the `Custom Script` template and fill out the details as shown below.
 
