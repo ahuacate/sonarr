@@ -239,7 +239,7 @@ sudo systemctl stop sonarr.service &&
 sleep 5 &&
 rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
 unzip -o /mnt/backup/sonarr/sonarr_backup_base_settings.zip 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
-chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db* &&
+chown 1105:100 /home/media/.config/NzbDrone/nzbdrone.db* &&
 sudo systemctl restart sonarr.service
 ```
 
