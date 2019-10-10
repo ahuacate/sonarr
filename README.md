@@ -43,8 +43,8 @@ sleep 5 &&
 rm -r /home/media/.config/NzbDrone/nzbdrone.db &&
 wget https://raw.githubusercontent.com/ahuacate/sonarr/master/backup/nzbdrone.db -O /home/media/.config/NzbDrone/nzbdrone.db &&
 wget https://raw.githubusercontent.com/ahuacate/sonarr/master/backup/config.xml -O /home/media/.config/NzbDrone/config.xml
-chown 1005:1005 /home/media/.config/NzbDrone/nzbdrone.db &&
-chown 1005:1005 /home/media/.config/NzbDrone/config.xml &&
+chown 1105:100 /home/media/.config/NzbDrone/nzbdrone.db &&
+chown 1105:100 /home/media/.config/NzbDrone/config.xml &&
 sudo systemctl restart sonarr.service
 ```
 
