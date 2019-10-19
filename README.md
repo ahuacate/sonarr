@@ -239,7 +239,7 @@ sudo systemctl stop sonarr.service &&
 sleep 5 &&
 rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
 unzip -o /mnt/backup/sonarr/sonarr_backup_base_settings.zip 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
-chown 1105:100 /home/media/.config/NzbDrone/nzbdrone.db* &&
+chown 1605:65605 /home/media/.config/NzbDrone/nzbdrone.db* &&
 sudo systemctl restart sonarr.service
 ```
 
@@ -252,8 +252,8 @@ rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
 newest=$(ls -t /home/media/.config/NzbDrone/Backups/scheduled/*.zip | head -1) &&
 echo $newest &&
 unzip -o "$newest" 'nzbdrone.db*' 'config.xml' -d /home/media/.config/NzbDrone &&
-chown 1105:100 /home/media/.config/NzbDrone/nzbdrone.db* &&
-chown 1105:100 /home/media/.config/NzbDrone/config.xml &&
+chown 1605:65605 /home/media/.config/NzbDrone/nzbdrone.db* &&
+chown 1605:65605 /home/media/.config/NzbDrone/config.xml &&
 sudo systemctl restart sonarr.service
 ```
 
