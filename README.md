@@ -17,10 +17,21 @@ Other Prerequisites are:
 - [x] Sonarr LXC with Sonarr SW installed as per [Sonarr LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#80-sonarr-lxc---ubuntu-1804)
 
 Tasks to be performed are:
-- [ ] 1.00 Easy Sonarr Configuration
-- [ ] 2.00 Manually Configure Sonarr Settings
-- [ ] 3.00 Create & Restore Sonarr Backups
-- [ ] 00.00 Patches & Fixes
+- [1.00 Easy Sonarr Configuration](#100-easy-sonarr-configuration)
+- [2.00 Manually Configure Sonarr Settings](#200-manually-configure-sonarr-settings)
+	- [2.01 Configure Media Management](#201-configure-media-management)
+	- [2.02 Configure Profiles](#202-configure-profiles)
+	- [2.03 Configure Quality](#203-configure-quality)
+	- [2.04 Configure Indexers](#204-configure-indexers)
+	- [2.05 Configure Download Clients](#205-configure-download-clients)
+	- [2.06 Configure Connect](#206-configure-connect)
+	- [2.07 Configure General](#207-configure-general)
+	- [2.08 Configure UI](#208-configure-ui)
+- [3.00 Create & Restore Sonarr Backups](#300-create--restore-sonarr-backups)
+	- [3.01 Create a Base Settings Backup](#301-create-a-base-settings-backup)
+	- [3.03 Restore to Sonarr Base Settings](#303-restore-to-sonarr-base-settings)
+	- [3.03 Restore the lastest Sonarr backup](#303-restore-the-lastest-sonarr-backup)
+- [00.00 Patches & Fixes](#0000-patches--fixes)
 
 
 ## 1.00 Easy Sonarr Configuration
