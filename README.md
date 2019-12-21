@@ -77,7 +77,7 @@ Create a new torrent indexer using the `Torznab Custom` template and fill out th
 | Name | `Jackett`
 | Enable RSS Sync | `No`
 | Enable Search | `Yes`
-| URL | `http://192.168.30.113:9117`
+| URL | `http://192.168.50.120:9117`
 | API Path | `/torznab/all/api`
 | API Key | `s9tcqkddvjpkmis824pp6ucgpwcd2xnc`
 | Categories | `5030,5040`
