@@ -34,32 +34,16 @@ Tasks to be performed are:
 - [00.00 Patches & Fixes](#0000-patches--fixes)
 
 
-## 1.00 Easy Sonarr Configuration
-Easy Method configures some Sonarr preferences BUT not all.
+## 1.00 Set your Sonarr API Key
 
-Or take the the manual route and proceed to Step 2 HERE.
 
-After running the scripted CLI Easy Method your input is required for the following settings:
-
-*  Adding your NZB Usenet Indexer provider accounts which can be done by performing this step [2.04 (B) Configure Indexers](https://github.com/ahuacate/sonarr/blob/master/README.md#204-configure-indexers)
-*  Adding Deluge downloader and login credentials [2.05 (A) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
-*  Adding NZBGet downloader and login credentials [2.05 (B) Configure Download Client](https://github.com/ahuacate/sonarr/blob/master/README.md#205-configure-download-clients)
-*  Add your JellyFin Connection [2.06 (A) Configure Connect](https://github.com/ahuacate/radarr/blob/master/README.md#206-configure-connect)
-*  Updating Sonarr to use a secure login username & password which can be done by performing this step [2.07 Configure General](https://github.com/ahuacate/sonarr/blob/master/README.md#207-configure-general).
-
-Begin with the Proxmox web interface and go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
 ```
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
-rm -r /home/media/.config/NzbDrone/nzbdrone.db &&
-wget https://raw.githubusercontent.com/ahuacate/sonarr/master/backup/nzbdrone.db -O /home/media/.config/NzbDrone/nzbdrone.db &&
-wget https://raw.githubusercontent.com/ahuacate/sonarr/master/backup/config.xml -O /home/media/.config/NzbDrone/config.xml
-chown 1105:100 /home/media/.config/NzbDrone/nzbdrone.db &&
-chown 1105:100 /home/media/.config/NzbDrone/config.xml &&
+
 sudo systemctl restart sonarr.service
 ```
 
-Thats it. Now go and complete Steps 2.04 (B), 2.05 (A) and 2.07.
 
 
 ## 2.00 Manually Configure Sonarr Settings
