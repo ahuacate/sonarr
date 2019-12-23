@@ -66,6 +66,22 @@ Thats it. Now go and complete Steps 2.04 (B), 2.05 (A) and 2.07.
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to set `Shown` state. Configure all your tabs as follows.
 
 ### 2.01 Configure Media Management
+Set as shown.
+
+For the field **Standard Episode Format** edit:
+```
+{Series Title} - S{season:00}E{episode:00} - {Episode Title} - [{Quality Title} {MediaInfo Simple}]
+```
+For the field **Daily Episode Format** edit:
+```
+{Series Title} - {Air-Date} - {Episode Title} - [{Quality Title} {MediaInfo Simple}]
+```
+For the field **Anime Episode Format** edit:
+```
+{Series Title} - S{season:00}E{episode:00} - [{Quality Title} {MediaInfo Simple}]
+```
+
+And cross check and set the remaining fields as follows:
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
 
 ### 2.02 Configure Profiles
