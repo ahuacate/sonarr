@@ -17,7 +17,7 @@ Other Prerequisites are:
 - [x] Sonarr LXC with Sonarr SW installed as per [Sonarr LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#80-sonarr-lxc---ubuntu-1804)
 
 Tasks to be performed are:
-- [1.00 Easy Sonarr Configuration](#100-easy-sonarr-configuration)
+- [1.00 Set your Sonarr API Key](#100-set-your-sonarr-api-key)
 - [2.00 Manually Configure Sonarr Settings](#200-manually-configure-sonarr-settings)
 	- [2.01 Configure Media Management](#201-configure-media-management)
 	- [2.02 Configure Profiles](#202-configure-profiles)
