@@ -85,7 +85,33 @@ And cross check and set the remaining fields as follows:
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
 
 ### 2.02 Configure Profiles
-Edit Delay Profiles. Add 300 minutes to the torrent delay.
+Each box in the Profiles tab shows a list of allowed qualities. For a episode that is assigned the "Any" profile, radarr will search for all qualities in the list, and choose highest match found.
+
+You may create new Profiles with specific qualities in any order you wish to use with higher priority qualities at the top, and lower priority qualities at the bottom.
+
+The following is a custom profile for 4K > HDTV-1080p.
+
+**A) Create a new Profile - 4K > HDTV-1080p**
+
+This Profile is applicable for a 4K TV.
+
+Create the new profile by clicking the + icon. Complete the form as follows making sure of the order of Qualities.
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/4K_1080p_profile.png)
+
+**B) Delay profiles**
+
+You can set up Delay Profiles to wait to download preferred releases until after a certain time has elapsed, this will allow extra time for releases with your preferred tags or cutoffs to be released.
+
+For example, my delay profile will wait one day to start the download, and if any releases containing my preferred tags come across it will be preferred over others that do not have the preferred tags.
+
+I recommend to set as follows:
+
+| Delay Profile | Value | Notes
+| :---  | :---: | :---
+| Protocol | `Prefer Usenet`
+| Usenet Delay | `720`
+| Torrent Delay | `720`
+
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
 
 ### 2.03 Configure Quality
