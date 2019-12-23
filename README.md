@@ -35,22 +35,20 @@ Tasks to be performed are:
 
 
 ## 1.00 Set your Sonarr API Key
-
-
+For ease of configuring all my API connections I set Sonarr to a known API ID
 ```
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
-
+sed -i 's|<ApiKey>.*|<ApiKey>1a0b9fd2dc144ec28141440f72616c74</ApiKey>|g' /var/lib/sonarr/config.xml &&
 sudo systemctl restart sonarr.service
 ```
-
-
 
 ## 2.00 Manually Configure Sonarr Settings
 Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Tab` and click `Advanced Settings` to set `Shown` state. Configure all your tabs as follows.
 
 ### 2.01 Configure Media Management
-Set as shown.
+Set as shown in the image.
+**A) Episode Naming**
 
 For the field **Standard Episode Format** edit:
 ```
@@ -64,8 +62,15 @@ For the field **Anime Episode Format** edit:
 ```
 {Series Title} - S{season:00}E{episode:00} - [{Quality Title} {MediaInfo Simple}]
 ```
+**B) Root Folders**
+Here we point Sonarr to our media libraries. Click `Add Root Folder` and add the following folders:
 
-And cross check and set the remaining fields as follows:
+| Root Folders | Value | Notes
+| :---  | :---: | :---
+| TV Series Folder | `/mnt/video/tv` | ***Here is your TV series folder***
+| Documentary Folder | `/mnt/video/documentary/series` | ***Optional --- for use with Flexget to get documentary videos***
+
+Cross check and set all the fields as follows:
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
 
 ### 2.02 Configure Profiles
@@ -183,7 +188,7 @@ And click `Test` to check it works. If successful, click `Save`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/nzbget.png)
 
-Other `download tab` settings must be set as follows:
+Other `Download Clients` tab settings must be set as follows:
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
 
@@ -213,6 +218,7 @@ And click `Test` to check it works. If successful, click `Save`.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/jellyfin.png)
 
 **B)  sonarr-episode-trimmer**
+**Under Development**
 
 First create a new connection using the `Custom Script` template and fill out the details as shown below.
 
@@ -246,6 +252,7 @@ Here are required edits: 1) URL Base; and, 2) setting the security section to en
 | Username | `storm` | *Note, or whatever username you choose*
 | Password | `insert password here` | *Add a complex password and record it i.e oTL&9qe/9Y&RV*
 | API Key | leave default
+| Certificate Validation | `Enabled`
 
 And click `Save`.
 
@@ -263,20 +270,18 @@ But it's good idea to make a clean backup of your working Sonarr settings, inclu
 This backup file must be named sonarr_backup_base_settings.zip and be located on your NAS in folder /mnt/backup/sonarr for the following scripts to work.
 
 ### 3.01 Create a Base Settings Backup
-Perform after you have completed Steps 1.00 or Steps 2.00. This file must be stored on your NAS for future rebuilds
+Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Systems Tab` > `Logs Files` and click `Clear` on all.
 
-Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Systems Tab` > `Logs Tab` > `Table/Files/Updates Tabs` and click `Clear Logs` on all.
-
-Then click `System Tab` > `Backup Tab` and click `Backup` to create a new backup file which will be shown with a name like `nzbdrone_backup_2019.09.24_05.39.55.zip`. Now right click on this newly created file (at the top of list) and save to your NAS share `/proxmox/backup/sonarr` (locally mounted as /mnt/backup/sonarr). Rename your backup file from `nzbdrone_backup_2019.09.24_05.39.55.zip` to `sonarr_backup_base_settings.zip`.
+Then click `System Tab` > `Backup Tab` and click `Backup Now` to create a new backup file which will be shown with a name like `nzbdrone_backup_2019.09.24_05.39.55.zip`. Now right click on this newly created file (at the top of list) and save to your NAS share `/proxmox/backup/sonarr` (locally mounted as /mnt/backup/sonarr). Rename your backup file from `nzbdrone_backup_2019.09.24_05.39.55.zip` to `sonarr_backup_base_settings.zip`.
 
 ### 3.03 Restore to Sonarr Base Settings
 With the Proxmox web interface go to `typhoon-01` > `115 (sonarr)` > `>_ Shell` and type the following:
 ```
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
-rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
-unzip -o /mnt/backup/sonarr/sonarr_backup_base_settings.zip 'nzbdrone.db*' -d /home/media/.config/NzbDrone &&
-chown 1605:65605 /home/media/.config/NzbDrone/nzbdrone.db* &&
+rm -r /var/lib/sonarr/sonarr.db* &&
+unzip -o /mnt/backup/sonarr/sonarr_backup_base_settings.zip 'sonarr.db*' -d /var/lib/sonarr &&
+chown 1605:65605 /var/lib/sonarr/nzbdrone.db* &&
 sudo systemctl restart sonarr.service
 ```
 
@@ -285,12 +290,12 @@ If you want to restore to your last backup (this backup is a maximum of 7 days o
 ```
 sudo systemctl stop sonarr.service &&
 sleep 5 &&
-rm -r /home/media/.config/NzbDrone/nzbdrone.db* &&
-newest=$(ls -t /home/media/.config/NzbDrone/Backups/scheduled/*.zip | head -1) &&
+rm -r /var/lib/sonarr/sonarr.db* &&
+newest=$(ls -t /var/lib/sonarr/Backups/scheduled/*.zip | head -1) &&
 echo $newest &&
-unzip -o "$newest" 'nzbdrone.db*' 'config.xml' -d /home/media/.config/NzbDrone &&
-chown 1605:65605 /home/media/.config/NzbDrone/nzbdrone.db* &&
-chown 1605:65605 /home/media/.config/NzbDrone/config.xml &&
+unzip -o "$newest" 'sonarr.db*' 'config.xml' -d /var/lib/sonarr &&
+chown 1605:65605 /var/lib/sonarr/sonarr.db* &&
+chown 1605:65605 /var/lib/sonarr/config.xml &&
 sudo systemctl restart sonarr.service
 ```
 
