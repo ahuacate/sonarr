@@ -114,7 +114,7 @@ I recommend to set as follows:
 I would like for TV shows to be sourced or upgraded to my `4K > HDTV-1080p` profile with preferred conditions (i.e HEVC, x265, h265, hdr, 10bit with surround sound). This is done in `Release Profiles`.
 
 | Release Profiles | Value | Value | Notes
-| :---  | :---: | :---
+| :---  | :---: | :---: | :---
 | **Must Contain**
 || Leave Blank
 | **Must Not Contain**
