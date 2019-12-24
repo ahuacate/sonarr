@@ -1,5 +1,5 @@
 # Sonarr Build
-This recipe is for setting up Sonarr. The following assumes your are familiar with Sonarr and its preference menus and configuration options.
+This recipe is for setting up Sonarr version 3. The following assumes your are familiar with Sonarr and its preference menus and configuration options.
 
 Network Prerequisites are:
 - [x] Layer 2 Network Switches
