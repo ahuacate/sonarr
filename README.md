@@ -20,11 +20,20 @@ Tasks to be performed are:
 - [1.00 Set your Sonarr API Key](#100-set-your-sonarr-api-key)
 - [2.00 Manually Configure Sonarr Settings](#200-manually-configure-sonarr-settings)
 	- [2.01 Configure Media Management](#201-configure-media-management)
+	- [2.01a Episode Naming](#201a-episode-naming)
+	- [2.01b Root Folders](#201b-root-folders)
 	- [2.02 Configure Profiles](#202-configure-profiles)
+	- [2.02a Create a new Profile - 4K > HDTV-1080p](#202a-create-a-new-profile---4k--hdtv-1080p)
+	- [2.02b Delay Profiles](#202b-delay-profiles)
+	- [2.02c Release Profiles](#202c-release-profiles)
 	- [2.03 Configure Quality](#203-configure-quality)
 	- [2.04 Configure Indexers](#204-configure-indexers)
 	- [2.05 Configure Download Clients](#205-configure-download-clients)
+	- [2.05a  Deluge Download Client](#205a--deluge-download-client)
+	- [2.05b  NZBGet Download Client](#205b--nzbget-download-client)
 	- [2.06 Configure Connect](#206-configure-connect)
+	- [2.06a  Jellyfin Connection](#206a--jellyfin-connection)
+	- [2.06b  sonarr-episode-trimmer](#206b--sonarr-episode-trimmer)
 	- [2.07 Configure General](#207-configure-general)
 	- [2.08 Configure UI](#208-configure-ui)
 - [3.00 Create & Restore Sonarr Backups](#300-create--restore-sonarr-backups)
@@ -48,7 +57,7 @@ Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Ta
 
 ### 2.01 Configure Media Management
 Set as shown in the image.
-### 2.01A Episode Naming
+### 2.01a Episode Naming
 
 For the field **Standard Episode Format** edit:
 ```
@@ -62,7 +71,7 @@ For the field **Anime Episode Format** edit:
 ```
 {Series Title} - S{season:00}E{episode:00} - [{Quality Title} {MediaInfo Simple}]
 ```
-**B) Root Folders**
+### 2.01b Root Folders
 Here we point Sonarr to our media libraries. Click `Add Root Folder` and add the following folders:
 
 | Root Folders | Value | Notes
@@ -80,15 +89,15 @@ You may create new Profiles with specific qualities in any order you wish to use
 
 The following is a custom profile for 4K > HDTV-1080p.
 
-**A) Create a new Profile - 4K > HDTV-1080p**
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
 
+### 2.02a Create a new Profile - 4K > HDTV-1080p
 This Profile is applicable for a 4K TV.
 
 Create the new profile by clicking the + icon. Complete the form as follows making sure of the order of Qualities.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/4K_1080p_profile.png)
 
-**B) Delay profiles**
-
+### 2.02b Delay Profiles
 You can set up Delay Profiles to wait to download preferred releases until after a certain time has elapsed, this will allow extra time for releases with your preferred tags or cutoffs to be released.
 
 For example, my delay profile will wait one day to start the download, and if any releases containing my preferred tags come across it will be preferred over others that do not have the preferred tags.
@@ -101,7 +110,33 @@ I recommend to set as follows:
 | Usenet Delay | `720`
 | Torrent Delay | `720`
 
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
+### 2.02c Release Profiles
+I would like for TV shows to be sourced or upgraded to my `4K > HDTV-1080p` profile with preferred conditions (i.e HEVC, x265, h265, hdr, 10bit with surround sound). This is done in `Release Profiles`.
+
+| Release Profiles | Value | Value | Notes
+| :---  | :---: | :---
+| **Must Contain**
+|| Leave Blank
+| **Must Not Contain**
+|| Leave Blank
+| **Preferred**
+| | `hdr` | `40`
+| | `10bit` | `40`
+| | `10 bit` | `40`
+| | `hevc` | `20`
+| | `h265` | `20`
+| | `h.265` | `20`
+| | `x265` | `20`
+| | `x.265` | `20`
+| | `h264` | `10`
+| | `h.264` | `10`
+| | `x264` | `10`
+| | `x.264` | `10`
+| | `atmos` | `10`
+| | `7.1` | `10`
+| | `5.1` | `5`
+
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/release_profiles.png)
 
 ### 2.03 Configure Quality
 Edit HDTV Quality and BluRay-1080p size limit to 10.00GB.
@@ -125,7 +160,7 @@ Create a new torrent indexer using the `Torznab Custom` template and fill out th
 | Categories | `5030,5040`
 | Anime Categories | leave blank
 | Additional Parameters | leave blank
-| Minimum Seeders | `1`
+| Minimum Seeders | `10`
 | Seed Ratio | leave blank
 | Seed Time | leave blank
 | Season-Pack Seed Time | leave blank
@@ -143,9 +178,13 @@ Finally edit the `Options` Retention to `1500` days.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/indexers.png)
 
 ### 2.05 Configure Download Clients
-**A)  Deluge Download Client**
+Configure `Download Client` fields as follows:
 
-First create a new download client using the `Torrent > Deluge` template and fill out the details as shown below.
+![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
+
+### 2.05a  Deluge Download Client
+
+Create a new download client using the `Torrent > Deluge` template and fill out the details as shown below.
 
 | Add Deluge | Value | Notes
 | :---  | :---: | :---
@@ -156,48 +195,47 @@ First create a new download client using the `Torrent > Deluge` template and fil
 | URL Base| leave blank
 | Password| `insert your deluge password` | *This is your Deluge login password*
 | Category | `sonarr-series`
+| Post-Import Category | leave blank
 | Recent Priority | First
 | Older Priority | Last
-| Add Paused | No
-| Use SSL | No
+| Add Paused | `☐`
+| Use SSL | `☐`
+| Client Priority | `2`
 
 And click `Test` to check it works. If successful, click `Save`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/deluge.png)
 
-**B)  NZBGet Download Client**
+### 2.05b  NZBGet Download Client
 
-First create a new download client using the `Usenet > NZBGet` template and fill out the details as shown below.
+Create a new download client using the `Usenet > NZBGet` template and fill out the details as shown below.
 
 | Add NZBGet | Value | Notes
 | :---  | :---: | :---
 | Name | `NZBGet`
-| Enable| `Yes`
+| Enable | `☑`
 | Host | `192.168.30.112`
 | Port | `6789`
-| URL Base| leave blank
+| URL Base | leave blank
 | Username | `client`
 | Password| `insert your client password` | *This is your NZBGet client password*
 | Category | `sonarr-series`
-| Recent Priority | High
-| Older Priority | Normal
-| Add Paused | No
-| Use SSL | No
+| Recent Priority | `High`
+| Older Priority | `Normal`
+| Add Paused | `☐`
+| Use SSL | `☐`
+| Client Priority | `1`
 
 And click `Test` to check it works. If successful, click `Save`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/nzbget.png)
 
-Other `Download Clients` tab settings must be set as follows:
-
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
-
 ### 2.06 Configure Connect
 Here you need to create two connections: A) Jellyfin; and, B) sonarr-episode-trimmer. 
 
-**A)  Jellyfin Connection**
+### 2.06a  Jellyfin Connection
 
-First create a new connection using the `Emby (Media Browser)` template and fill out the details as shown below.
+Create a new connection using the `Emby (Media Browser)` template and fill out the details as shown below.
 
 | Add - Emby (Media Browser) | Value | Notes
 | :---  | :---: | :---
@@ -217,10 +255,9 @@ And click `Test` to check it works. If successful, click `Save`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/jellyfin.png)
 
-**B)  sonarr-episode-trimmer**
+### 2.06b  sonarr-episode-trimmer
 **Under Development**
-
-First create a new connection using the `Custom Script` template and fill out the details as shown below.
+Create a new connection using the `Custom Script` template and fill out the details as shown below.
 
 | Add - Custom Script | Value | Notes
 | :---  | :---: | :---
@@ -238,7 +275,7 @@ And click `Test` to check it works. If successful, click `Save`.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/sonarr-episode-trimmer.png)
 
 ### 2.07 Configure General
-Here are required edits: 1) URL Base; and, 2) setting the security section to enable username and login.
+The required edits are: 1) `URL Base`; and, 2) setting the security section to enable username and login.
 
 | Start-Up | Value | Notes
 | :---  | :---: | :---
