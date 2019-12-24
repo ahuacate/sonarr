@@ -48,7 +48,7 @@ Browse to http://192.168.50.115:8989 and login to Sonarr. Click the `Settings Ta
 
 ### 2.01 Configure Media Management
 Set as shown in the image.
-#### 2.01A Episode Naming
+### 2.01A Episode Naming
 
 For the field **Standard Episode Format** edit:
 ```
