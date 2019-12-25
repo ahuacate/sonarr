@@ -177,7 +177,7 @@ Create a new torrent indexer using the `Torznab Custom` template and fill out th
 | Categories | `5030,5040`
 | Anime Categories | leave blank
 | Additional Parameters | leave blank
-| Minimum Seeders | `10`
+| Minimum Seeders | `5`
 | Seed Ratio | leave blank
 | Seed Time | leave blank
 | Season-Pack Seed Time | leave blank
