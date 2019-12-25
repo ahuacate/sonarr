@@ -139,7 +139,23 @@ I would like for TV shows to be sourced or upgraded to my `4K > HDTV-1080p` prof
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/release_profiles.png)
 
 ### 2.03 Configure Quality
-Edit HDTV Quality and BluRay-1080p size limit to 10.00GB.
+By default some quality profiles have a minimum limit of 0 MB/h. To maintain bitrate quality I set a minimum of 1Gb/h (17.7 Mb/m) and above depending on quality type.
+
+I recommened the following value edits:
+
+| Quality Definitions | Minimum MB/m | Maximim MB/m
+| :---  | :---: | :---: 
+| HDTV-1080p | `17.7` | `170.7`
+| WEBDL-1080p | `17.7` | `100`
+| WEBRip-1080p | `17.7` | `130`
+| Bluray-1080p | `17.7` | `170.7`
+| Bluray-1080p Remux | `35` | `400`
+| HDTV-2160p | `25` | `400`
+| WEBDL-2160p | `25` | `400`
+| WEBRip-2160p | `25` | `400`
+| Bluray-2160p | `35` | `400`
+| Bluray-2160p Remux | `35` | `400`
+
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
 
 ### 2.04 Configure Indexers
