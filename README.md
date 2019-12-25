@@ -145,8 +145,7 @@ Edit HDTV Quality and BluRay-1080p size limit to 10.00GB.
 ### 2.04 Configure Indexers
 This is where you configure Lidarr to use Usenet as your primary search indexer and Torrents (Jackett) as the secondary indexer.  For torrents Sonarr uses Jackett which must be installed as shown [HERE](https://github.com/ahuacate/jackett).
 
-**A) Add Jackett as a Indexer**
-
+### 2.04a Add Jackett as a Indexer
 Create a new torrent indexer using the `Torznab Custom` template and fill out the details as shown below.
 
 | Add Torznab | Value
@@ -169,8 +168,7 @@ And click `Save`. The finished Jackett configuration looks like:
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/torznab.png)
 
-**B) Add Usenet Indexers**
-
+### 2.04b Add Usenet Indexers
 Add all your Usenet indexers providers with the `Newsnab` presets (or custom if your provider is not listed).
 
 Finally edit the `Options` Retention to `1500` days.
@@ -183,7 +181,6 @@ Configure `Download Client` fields as follows:
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
 
 ### 2.05a  Deluge Download Client
-
 Create a new download client using the `Torrent > Deluge` template and fill out the details as shown below.
 
 | Add Deluge | Value | Notes
@@ -207,7 +204,6 @@ And click `Test` to check it works. If successful, click `Save`.
 ![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/deluge.png)
 
 ### 2.05b  NZBGet Download Client
-
 Create a new download client using the `Usenet > NZBGet` template and fill out the details as shown below.
 
 | Add NZBGet | Value | Notes
@@ -234,7 +230,6 @@ And click `Test` to check it works. If successful, click `Save`.
 Here you need to create two connections: A) Jellyfin; and, B) sonarr-episode-trimmer. 
 
 ### 2.06a  Jellyfin Connection
-
 Create a new connection using the `Emby (Media Browser)` template and fill out the details as shown below.
 
 | Add - Emby (Media Browser) | Value | Notes
