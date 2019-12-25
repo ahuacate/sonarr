@@ -28,6 +28,8 @@ Tasks to be performed are:
 	- [2.02c Release Profiles](#202c-release-profiles)
 	- [2.03 Configure Quality](#203-configure-quality)
 	- [2.04 Configure Indexers](#204-configure-indexers)
+	- [2.04a Add Jackett as a Indexer](#204a-add-jackett-as-a-indexer)
+	- [2.04b Add Usenet Indexers](#204b-add-usenet-indexers)
 	- [2.05 Configure Download Clients](#205-configure-download-clients)
 	- [2.05a  Deluge Download Client](#205a--deluge-download-client)
 	- [2.05b  NZBGet Download Client](#205b--nzbget-download-client)
@@ -141,7 +143,7 @@ I would like for TV shows to be sourced or upgraded to my `4K > HDTV-1080p` prof
 ### 2.03 Configure Quality
 By default some quality profiles have a minimum limit of 0 MB/h. To maintain bitrate quality I set a minimum of 1Gb/h (17.7 Mb/m) and above depending on quality type.
 
-I recommened the following value edits:
+I recommend the following value edits:
 
 | Quality Definitions | Minimum MB/m | Maximim MB/m
 | :---  | :---: | :---: 
