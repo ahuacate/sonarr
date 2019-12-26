@@ -63,15 +63,15 @@ Set as shown in the image.
 
 For the field **Standard Episode Format** edit:
 ```
-{Series Title} - S{season:00}E{episode:00} - {Episode Title} - [{Quality Title} {MediaInfo Simple}]
+{Series Title} - S{season:00}E{episode:00} - {Episode Title} - [{Quality Title} {MediaInfo Simple} {MediaInfo AudioChannels} {MediaInfo VideoDynamicRange}]
 ```
 For the field **Daily Episode Format** edit:
 ```
-{Series Title} - {Air-Date} - {Episode Title} - [{Quality Title} {MediaInfo Simple}]
+{Series Title} - {Air-Date} - {Episode Title} - [{Quality Title} {MediaInfo Simple} {MediaInfo AudioChannels} {MediaInfo VideoDynamicRange}]
 ```
 For the field **Anime Episode Format** edit:
 ```
-{Series Title} - S{season:00}E{episode:00} - [{Quality Title} {MediaInfo Simple}]
+{Series Title} - S{season:00}E{episode:00} - [{Quality Title} {MediaInfo Simple} {MediaInfo AudioChannels} {MediaInfo VideoDynamicRange}]
 ```
 ### 2.01b Root Folders
 Here we point Sonarr to our media libraries. Click `Add Root Folder` and add the following folders:
